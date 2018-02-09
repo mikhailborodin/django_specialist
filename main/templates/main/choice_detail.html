@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>{{ object.choice_text }}</h1>
+<p>Votes: {{ object.votes }}</p>
+<a href="{% url 'question_detail' object.question.id %}">back</a>
+</body>
+</html>

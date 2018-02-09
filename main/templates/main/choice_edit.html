@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if errors %}
+<ul>
+{% for field, error in errors.items %}
+    <li>{{ field }} - {{ error }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+<form action="{% url 'edit_choice' pk %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit">
+</form>
+
+</body>
+</html>

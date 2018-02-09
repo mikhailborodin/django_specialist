@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if errors %}
+<ul>
+{% for field, error in errors.items %}
+    <li>{{ field }} - {{ error }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+<form action="{% url 'add_choice' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="question" value="{{ question_id }}">
+    <label for="choice_text_1">Choice text</label>
+    <input id="choice_text_1" type="text" name="choice_text">
+    <label for="votes_1">Votes</label>
+    <input id="votes_1" type="number" name="votes">
+    <input type="submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Object list</h1>
+<ul>
+    {% for object in object_list %}
+    <li>
+        <a href="{% url 'object_detail' model_name object.id %}">
+            {{ object.get_text }} - {{ object.type }} - {{ object.pub_date }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

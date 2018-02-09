@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load filter_custom %}
+{% block title %}Question list{% endblock %}
+{% block content %}
+<ul>
+    {% for object in object_list %}
+    <li>
+        <a href="{% url 'question_detail' object.id %}">
+            {{ object.get_text }} - {% aggregate_functions object %} - {{ object.pub_date|date:"SHORT_DATE_FORMAT" }}
+            {# {{ object.choice__votes__avg|default_if_none:"nothing" }} #}
+        </a>
+        {{ value|reg_cut:"\d+"|safe }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
